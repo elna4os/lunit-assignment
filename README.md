@@ -1,17 +1,16 @@
 ## Lunit assignment
 
-**Task**: Predict ER status from image features
-
+**Task**: Predict ER from image features  
 **Repo structure**:
 
-- data - unpack data here if needed
-- notebooks - contains different notebooks: EDA, post-analysis and so on
-- src - source code for model training/prediction and other routines
+- data - unpack all necessary data here
+- notebooks - EDA, post-analysis, etc.
+- src - source code for data preparation, training, prediction, utils
 
-**Python**: 3.8
+**Env**:
 
-**Install dependencies**:
-
-```
-pip install -r requirements.txt --no-cache-dir
-```````
+- Python: 3.8
+- Requirements:
+  ```
+  pip install -r requirements.txt --no-cache-dir
+  ```
