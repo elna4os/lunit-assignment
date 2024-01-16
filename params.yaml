@@ -1,0 +1,7 @@
+prepare:
+  image_features_path: data/Imaging_Features.xlsx
+  clinical_features_path: data/Clinical_and_Other_Features.xlsx
+  lunit_preds_path: data/lunit_predictions.xlsx
+  patient_id_col: "Patient ID"
+  target_col: "ER"
+  out_path: out/prepare/df_image_features.parquet

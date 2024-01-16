@@ -1,11 +1,12 @@
 ## Lunit assignment
 
-**Task**: Predict ER from image features  
-**Repo structure**:
+**Task**: Predict ER from image features
 
-- data - unpack all necessary data here
+**Repository structure**:
+
+- data - unpack all necessary data here (please respect original file names)
 - notebooks - EDA, post-analysis, etc.
-- src - source code for data preparation, training, prediction, utils
+- src - source code for data preparation, training, prediction, etc.
 
 **Env**:
 
@@ -14,3 +15,9 @@
   ```
   pip install -r requirements.txt --no-cache-dir
   ```
+
+**To reproduce pipeline, please run**:
+
+```
+dvc repro
+```
