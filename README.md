@@ -19,5 +19,5 @@
 **To reproduce pipeline, please run**:
 
 ```
-dvc repro
+PYTHONPATH=. dvc repro
 ```

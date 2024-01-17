@@ -8,3 +8,12 @@ stages:
     - prepare
     outs:
     - out/prepare
+  train:
+    cmd: python src/train.py
+    deps:
+    - out/prepare
+    - src/train.py
+    params:
+    - train
+    outs:
+    - out/train
