@@ -37,8 +37,8 @@ stages:
       nfiles: 1
     - path: src/train.py
       hash: md5
-      md5: f368a1a8ea4b22f6959aacafe3715918
-      size: 2968
+      md5: 7f7b6c6b209f7e3a674f738dbfb77166
+      size: 3733
     params:
       params.yaml:
         train:
@@ -62,4 +62,26 @@ stages:
       hash: md5
       md5: 2183bd30aa6c9cd313e7c24780019b49.dir
       size: 26432
+      nfiles: 1
+  test:
+    cmd: python src/test.py
+    deps:
+    - path: out/train
+      hash: md5
+      md5: 2183bd30aa6c9cd313e7c24780019b49.dir
+      size: 26432
+      nfiles: 1
+    - path: src/test.py
+      hash: md5
+      md5: bf41c5d08c53c184e1869d63bf9b9cb7
+      size: 1233
+    params:
+      params.yaml:
+        test:
+          out_path: out/test/preds.csv
+    outs:
+    - path: out/test
+      hash: md5
+      md5: d2cd7e15ac0a479cc195ef0d77aba457.dir
+      size: 11687
       nfiles: 1

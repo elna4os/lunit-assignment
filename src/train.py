@@ -29,6 +29,38 @@ def train_model(
     seed: int = 42,
     top_n: int = 10
 ) -> XGBClassifier:
+    """
+    Train XGBClassifier on data using OptunaSearchCV
+
+    Parameters
+    ----------
+    x_train : np.ndarray
+        Train features
+    y_train : np.ndarray
+        Train targets
+    features_names : List[str]
+        Features names
+    estimator : XGBClassifier
+        Estimator
+    hparams_grid : Dict[str, Any]
+        Hyperparams grid
+    cv : int, optional
+        Number of folds in CV, by default 5
+    n_jobs : int, optional
+        Threads num, by default 5
+    n_trials : int, optional
+        Trials num, by default 100
+    seed : int, optional
+        Seed, by default 42
+    top_n : int, optional
+        Top features importances to print after training, by default 10
+
+    Returns
+    -------
+    XGBClassifier
+        Best model
+    """
+
     param_distributions = {
         'max_depth': IntDistribution(
             low=hparams_grid['max_depth'][0],
@@ -75,7 +107,7 @@ if __name__ == '__main__':
         config = yaml.safe_load(f)
 
     # Get train data
-    x_train, y_train, features_names = get_subset_data(
+    x_train, y_train, features_names, _ = get_subset_data(
         filepath=config['prepare']['out_path'],
         subset='train',
         patient_id_col=config['prepare']['patient_id_col'],

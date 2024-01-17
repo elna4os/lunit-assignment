@@ -17,3 +17,12 @@ stages:
     - train
     outs:
     - out/train
+  test:
+    cmd: python src/test.py
+    deps:
+    - out/train
+    - src/test.py
+    params:
+    - test
+    outs:
+    - out/test

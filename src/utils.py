@@ -43,7 +43,7 @@ def get_subset_data(
     subset: str,
     patient_id_col: str = 'Patient ID',
     target_col: str = 'ER'
-) -> Tuple[np.ndarray, np.ndarray, List[str]]:
+) -> Tuple[np.ndarray, np.ndarray, List[str], List[str]]:
     """
     Get specific subset of data
 
@@ -58,15 +58,16 @@ def get_subset_data(
 
     Returns
     -------
-    Tuple[np.ndarray, np.ndarray, List[str]]
-        Features, targets, features names
+    Tuple[np.ndarray, np.ndarray, List[str], List[str]]
+        Features, targets, features names, patients IDs
     """
 
     df = pd.read_parquet(filepath)
     df_subset = df[df['subset'] == subset]
     targets = df_subset[target_col].values
+    patients_ids = df_subset[patient_id_col].tolist()
     df_subset = df_subset.drop(columns=[patient_id_col, target_col, 'subset'])
     features = df_subset.values
     logger.info(f'Data shape: x_train={features.shape}, y_train={targets.shape}')
 
-    return features, targets, list(df_subset.columns)
+    return features, targets, list(df_subset.columns), patients_ids
