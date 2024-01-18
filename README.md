@@ -16,7 +16,13 @@
   pip install -r requirements.txt --no-cache-dir
   ```
 
-**To reproduce pipeline, please run**:
+**To reproduce assignment**:
+
+- Run an EDA [notebook](notebooks/EDA.ipynb)
+- Run main pipeline (prepare/train/test)
+- Run a post_analysis [notebook](notebooks/post_analysis.ipynb)
+
+**To run pipeline, please run from project root**:
 
 ```
 PYTHONPATH=. dvc repro
